@@ -12,9 +12,9 @@ app.set('view engine', 'hbs');
 // This is to set the public folder  -> MiddleWare
 // app.use(express.static(__dirname +'/public'));
 
-app.use((req,res,next) =>{
-   res.render('maintenance.hbs');
-})
+// app.use((req,res,next) =>{
+//    res.render('maintenance.hbs');
+// })
 
 app.use((req,res,next) =>{
    var now = new Date().toString();
@@ -39,7 +39,7 @@ hbs.registerHelper('screamIt', (text)=>{
 });
 
 //listener handler
-app.get('/',(req, res)=>{serve
+app.get('/',(req, res)=>{
   // res.send('<h1>Hello Express!!</h1>');
   // res.send({
   //   name:'Vasanth',
@@ -59,6 +59,13 @@ app.get('/about', (req,res)=>{
   // res.send('About page');
   res.render('about.hbs',{
     pageTitle:'About page'
+  });
+});
+
+app.get('/projects', (req,res)=>{
+  // res.send('About page');
+  res.render('projects.hbs',{
+    projectMessage:'Hello Vasanth'
   });
 });
 
